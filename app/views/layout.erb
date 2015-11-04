@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
+
   <link rel="stylesheet" href="/stylesheets/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
+  <link rel="stylesheet" href="/stylesheets/materialize.css">
   <link rel="stylesheet" href="/stylesheets/application.css">
 
   <script src="/javascript/jquery.min.js"></script>
   <script src="/javascript/mustache.js"></script>
+  <script src="/javascript/materialize.js"></script>
   <script src="/javascript/application.js"></script>
+
+  <!-- icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <title></title>
 </head>
 <body>
+
   <div id="main-page">
-    <h1>Weather</h1>
-    <button class="weather">fetch</button>
-    <div id="sanfrancisco"></div>
+
+    <div id="weather-info">
+      <h1>Weather</h1>
+      <button class="weather waves-effect waves-light btn  blue-grey darken-2"><i class="material-icons left">cloud</i>find</button>
+      <div id="sanfrancisco"></div>
+    </div>
+
+    <div id="search">
+      <nav>
+        <div class="nav-wrapper">
+          <form>
+            <div class="input-field  blue-grey darken-2">
+              <input id="search " type="search" required>
+              <label for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>
+
   </div>
 
   <!-- mustache templates -->

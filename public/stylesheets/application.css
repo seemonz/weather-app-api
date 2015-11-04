@@ -4,6 +4,7 @@ html {
 
 h1 {
   color: #ecf0f1;
+  margin-top: 0;
 }
 
 p {
@@ -15,8 +16,28 @@ button {
   border-radius: 5px;
 }
 
+/* developing tool */
+/** {
+  border: solid white 1px;
+}*/
+
 #main-page {
-  width: 800px;
+  width: 1000px;
   margin: auto;
   margin-top: 15%;
+  position: relative;
+}
+
+#weather-info {
+  width: 300px;
+  position: absolute;
+  left: 0;
+}
+
+#search {
+  width: 500px;
+  position: absolute;
+  top: 0;
+  right: 0;
+
 }

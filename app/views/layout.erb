@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/stylesheets/application.css">
 
   <script src="/javascript/jquery.min.js"></script>
+  <script src="/javascript/mustache.js"></script>
   <script src="/javascript/application.js"></script>
 
   <title></title>
@@ -21,5 +22,11 @@
   <h1>Weather</h1>
   <button class="weather">fetch</button>
   <div id="sanfrancisco"></div>
+
+
+  <!-- mustache templates -->
+  <script id="weather-template" type="x-tmpl-mustache">
+    SanFrancisco Current Temp: {{tempC}} Cel
+  </script>
 </body>
 </html>

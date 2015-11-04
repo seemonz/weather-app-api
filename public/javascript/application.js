@@ -9,9 +9,11 @@ $(function() {
     $.getJSON(weatherApi, {
     })
       .success( function(data) {
+        debugger;
         var cityName = data.current_observation.display_location.full;
         var sanFranTempC = data.current_observation.temp_c;
-        var weatherRendered = Mustache.render(weatherTemp, {tempC: sanFranTempC, cityName: cityName});
+        var observationTime = data.current_observation.observation_time;
+        var weatherRendered = Mustache.render(weatherTemp, {tempC: sanFranTempC, cityName: cityName, observationTime: observationTime});
         $('#sanfrancisco').replaceWith(weatherRendered);
       });
     });

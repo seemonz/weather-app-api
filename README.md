@@ -1,7 +1,7 @@
-Sinatra
+Weather App API
 =============
 
-Brought to you by Lighthouse Labs
+weather app with api, learning!
 
 ## Getting Started
 

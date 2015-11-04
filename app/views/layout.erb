@@ -13,13 +13,23 @@
   <link rel="stylesheet" href="/stylesheets/application.css">
 
   <script src="/javascript/jquery.min.js"></script>
+  <script src="/javascript/mustache.js"></script>
   <script src="/javascript/application.js"></script>
 
   <title></title>
 </head>
 <body>
-  <h1>Weather</h1>
-  <button class="weather">fetch</button>
-  <div id="sanfrancisco"></div>
+  <div id="main-page">
+    <h1>Weather</h1>
+    <button class="weather">fetch</button>
+    <div id="sanfrancisco"></div>
+  </div>
+
+  <!-- mustache templates -->
+  <script id="weather-template" type="x-tmpl-mustache">
+    <p>City: {{cityName}}</p>
+    <p>Current Temp: {{tempC}} Cel</p>
+    <p>{{observationTime}}</p>
+  </script>
 </body>
 </html>

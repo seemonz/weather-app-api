@@ -2,7 +2,6 @@ $(function() {
   // selectors
   var sanFranEL = $("#sanfrancisco");
   var weatherTemp = $('#weather-template').html();
-  // var weatherRendered = Mustache.render(weatherTemp, {tempC: sanFranTempC});
 
   // SanFrancisco Current Observations API get
   $('.weather').on('click', function() {
@@ -14,7 +13,6 @@ $(function() {
         var sanFranTempC = data.current_observation.temp_c;
         var weatherRendered = Mustache.render(weatherTemp, {tempC: sanFranTempC, cityName: cityName});
         $('#sanfrancisco').replaceWith(weatherRendered);
-        // $('<p>').text(sanFranTempC).appendTo(sanFranEL);
       });
     });
 

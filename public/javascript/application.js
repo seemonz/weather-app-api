@@ -4,19 +4,20 @@ $(function() {
   var weatherTemp = $('#weather-template').html();
   var searchTemp = $('#search-list-template').html();
 
+
   // SanFrancisco Current Observations API get
-  $('.weather').on('click', function() {
-    var weatherApi = 'http://api.wunderground.com/api/626ed9352fa3920c/conditions/q/CA/San_Francisco.json';
-    $.getJSON(weatherApi, {
-    })
-      .success( function(data) {
-        var cityName = data.current_observation.display_location.full;
-        var sanFranTempC = data.current_observation.temp_c;
-        var observationTime = data.current_observation.observation_time;
-        var weatherRendered = Mustache.render(weatherTemp, {tempC: sanFranTempC, cityName: cityName, observationTime: observationTime});
-        $('#sanfrancisco').replaceWith(weatherRendered);
-      });
-    });
+  // $('.weather').on('click', function() {
+  //   var weatherApi = 'http://api.wunderground.com/api/626ed9352fa3920c/conditions/q/CA/San_Francisco.json';
+  //   $.getJSON(weatherApi, {
+  //   })
+  //     .success( function(data) {
+  //       var cityName = data.current_observation.display_location.full;
+  //       var sanFranTempC = data.current_observation.temp_c;
+  //       var observationTime = data.current_observation.observation_time;
+  //       var weatherRendered = Mustache.render(weatherTemp, {tempC: sanFranTempC, cityName: cityName, observationTime: observationTime});
+  //       $('#sanfrancisco').replaceWith(weatherRendered);
+  //     });
+  //   });
 
     function searchResultNames(result) {
       var searchRendered = Mustache.render(searchTemp, {searchName: result.name, location: result.l});
@@ -49,6 +50,17 @@ $(function() {
     });
 
     $('#search-list-div ul').on('click', 'button', function(e) {
-      console.log($(e.currentTarget).data('l'));
-    });
+        console.log($(e.currentTarget).data('l'));
+        $('#sanfrancisco').empty();
+        var weatherApi = 'http://api.wunderground.com/api/626ed9352fa3920c/conditions' + $(e.currentTarget).data('l') + '.json';
+        $.getJSON(weatherApi, {
+        })
+          .success( function(data) {
+            var cityName = data.current_observation.display_location.full;
+            var sanFranTempC = data.current_observation.temp_c;
+            var observationTime = data.current_observation.observation_time;
+            var weatherRendered = Mustache.render(weatherTemp, {tempC: sanFranTempC, cityName: cityName, observationTime: observationTime});
+            $('#sanfrancisco').append(weatherRendered);
+          });
+        });
 });

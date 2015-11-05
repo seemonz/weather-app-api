@@ -36,14 +36,16 @@ $(function() {
          dataType: 'jsonp',
          success: function(data){
              var searchResults = data.RESULTS;
+             $('#search-list-div ul').empty();
              searchResults.forEach( function(city) {
-               $('#search-element').append(searchResultNames(city));
+               $('#search-list-div ul').append(searchResultNames(city));
              });
            },
            error: function(e){
              console.log(e)
            }
          });
+         return false;
     });
 
 

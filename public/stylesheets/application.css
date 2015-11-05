@@ -23,6 +23,7 @@ button {
 
 #main-page {
   width: 1000px;
+  height: 800px;
   margin: auto;
   margin-top: 15%;
   position: relative;
@@ -30,14 +31,23 @@ button {
 
 #weather-info {
   width: 300px;
-  position: absolute;
-  left: 0;
+  height: 300px;
+  display: inline-block;
+  /*position: absolute;
+  left: 0;*/
 }
 
 #search-element {
   width: 500px;
-  position: absolute;
+  height: 100px;
+  display: inline-block;
+  float: right;
+  /*position: absolute;
   top: 0;
-  right: 0;
+  right: 0;*/
 
+}
+
+#search-list-div {
+  display: inline;
 }

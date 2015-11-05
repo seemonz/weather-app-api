@@ -19,7 +19,7 @@ $(function() {
     });
 
     function searchResultNames(result) {
-      var searchRendered = Mustache.render(searchTemp, {searchName: result.name});
+      var searchRendered = Mustache.render(searchTemp, {searchName: result.name, location: result.l});
       return searchRendered;
     }
 
@@ -39,7 +39,7 @@ $(function() {
              $('#search-list-div ul').empty();
              searchResults.forEach( function(city) {
                $('#search-list-div ul').append(searchResultNames(city));
-             });
+            });
            },
            error: function(e){
              console.log(e)
@@ -48,6 +48,7 @@ $(function() {
          return false;
     });
 
-
-
+    $('#search-list-div ul').on('click', 'button', function(e) {
+      console.log($(e.currentTarget).data('l'));
+    });
 });

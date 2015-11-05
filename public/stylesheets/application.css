@@ -50,4 +50,7 @@ button {
 
 #search-list-div {
   display: inline;
+  margin-right: 200px;
+  float: right;
+
 }

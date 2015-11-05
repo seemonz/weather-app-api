@@ -4,26 +4,10 @@ $(function() {
   var weatherTemp = $('#weather-template').html();
   var searchTemp = $('#search-list-template').html();
 
-
-  // SanFrancisco Current Observations API get
-  // $('.weather').on('click', function() {
-  //   var weatherApi = 'http://api.wunderground.com/api/626ed9352fa3920c/conditions/q/CA/San_Francisco.json';
-  //   $.getJSON(weatherApi, {
-  //   })
-  //     .success( function(data) {
-  //       var cityName = data.current_observation.display_location.full;
-  //       var sanFranTempC = data.current_observation.temp_c;
-  //       var observationTime = data.current_observation.observation_time;
-  //       var weatherRendered = Mustache.render(weatherTemp, {tempC: sanFranTempC, cityName: cityName, observationTime: observationTime});
-  //       $('#sanfrancisco').replaceWith(weatherRendered);
-  //     });
-  //   });
-
     function searchResultNames(result) {
       var searchRendered = Mustache.render(searchTemp, {searchName: result.name, location: result.l});
       return searchRendered;
     }
-
 
     $('#search-form').on('submit', function (e) {
       var searchString = $('input').val();
@@ -56,10 +40,14 @@ $(function() {
         $.getJSON(weatherApi, {
         })
           .success( function(data) {
-            var cityName = data.current_observation.display_location.full;
-            var sanFranTempC = data.current_observation.temp_c;
-            var observationTime = data.current_observation.observation_time;
-            var weatherRendered = Mustache.render(weatherTemp, {tempC: sanFranTempC, cityName: cityName, observationTime: observationTime});
+            var cityName = data
+              .current_observation.display_location.full;
+            var sanFranTempC = data
+              .current_observation.temp_c;
+            var observationTime = data
+              .current_observation.observation_time;
+            var weatherRendered = Mustache
+              .render(weatherTemp, {tempC: sanFranTempC, cityName: cityName, observationTime: observationTime});
             $('#sanfrancisco').append(weatherRendered);
           });
         });
